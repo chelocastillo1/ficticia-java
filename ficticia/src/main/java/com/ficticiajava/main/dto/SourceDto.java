@@ -58,7 +58,9 @@ public final class SourceDto extends GenericDto {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof SourceDto sourceDto)) return false;
+        if (!(o instanceof SourceDto)) return false;
+
+        SourceDto sourceDto = (SourceDto) o;
 
         if (!name.equals(sourceDto.name)) return false;
         if (!code.equals(sourceDto.code)) return false;

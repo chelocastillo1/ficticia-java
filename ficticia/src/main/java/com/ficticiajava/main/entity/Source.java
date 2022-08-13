@@ -91,7 +91,9 @@ public final class Source extends GenericEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Source source)) return false;
+        if (!(o instanceof Source)) return false;
+
+        Source source = (Source) o;
 
         if (!name.equals(source.name)) return false;
         if (!code.equals(source.code)) return false;

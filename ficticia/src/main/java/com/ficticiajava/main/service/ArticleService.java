@@ -48,7 +48,7 @@ public class ArticleService {
         List<ArticleDto> results;
 
         pb = PageRequest.of(nPage - 1, Pagination.PAGE_SIZE);
-        page = repository.findAll(pb);
+        page = repository.findAllByOrderByPublishedAtDesc(pb);
 
         if(nPage != 1 && page.getTotalPages() < nPage) // Nro de página fuera de rango
             throw new PageNotFoundException(Constants.EXCEPTION_PAGE_NOT_FOUND, nPage);

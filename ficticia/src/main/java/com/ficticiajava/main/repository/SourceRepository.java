@@ -16,5 +16,5 @@ public interface SourceRepository extends JpaRepository<Source, Long>, PagingAnd
 
     Optional<Source> findByName(String name);
 
-    Page<Source> findAllByNameContainsIgnoreCase(String name, Pageable pb);
+    Page<Source> findAllByNameContainsIgnoreCaseOrderByNameAsc(String name, Pageable pb);
 }

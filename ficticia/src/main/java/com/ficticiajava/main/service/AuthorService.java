@@ -64,7 +64,7 @@ public class AuthorService {
         List<AuthorDto> results;
 
         pb = PageRequest.of(nPage - 1, Pagination.PAGE_SIZE);
-        page = repository.findAllByFullNameContainsIgnoreCase(strFullName, pb);
+        page = repository.findAllByFullNameContainsIgnoreCaseOrderByFullNameAsc(strFullName, pb);
 
         if(nPage != 1 && page.getTotalPages() < nPage) // Nro de página fuera de rango
             throw new PageNotFoundException(Constants.EXCEPTION_PAGE_NOT_FOUND, nPage);
@@ -89,7 +89,7 @@ public class AuthorService {
         List<AuthorDto> results;
 
         pb = PageRequest.of(nPage - 1, Pagination.PAGE_SIZE);
-        page = repository.findAllByCreatedAtAfter(dCreatedAtAfter, pb);
+        page = repository.findAllByCreatedAtAfterOrderByCreatedAt(dCreatedAtAfter, pb);
 
         if(nPage != 1 && page.getTotalPages() < nPage) // Nro de página fuera de rango
             throw new PageNotFoundException(Constants.EXCEPTION_PAGE_NOT_FOUND, nPage);

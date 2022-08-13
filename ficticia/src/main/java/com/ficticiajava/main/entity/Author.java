@@ -88,7 +88,9 @@ public final class Author extends GenericEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Author author)) return false;
+        if (!(o instanceof Author)) return false;
+
+        Author author = (Author) o;
 
         if (!firstName.equals(author.firstName)) return false;
         if (!lastName.equals(author.lastName)) return false;

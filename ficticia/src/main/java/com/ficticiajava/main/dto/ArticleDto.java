@@ -79,7 +79,9 @@ public final class ArticleDto extends GenericDto {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ArticleDto that)) return false;
+        if (!(o instanceof ArticleDto)) return false;
+
+        ArticleDto that = (ArticleDto) o;
 
         if (!title.equals(that.title)) return false;
         if (!description.equals(that.description)) return false;

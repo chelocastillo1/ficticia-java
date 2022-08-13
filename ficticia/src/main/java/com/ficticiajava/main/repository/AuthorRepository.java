@@ -17,7 +17,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long>, PagingAnd
 
     Optional<Author> findByFullName(String fullName);
 
-    Page<Author> findAllByFullNameContainsIgnoreCase(String fullName, Pageable pb);
+    Page<Author> findAllByFullNameContainsIgnoreCaseOrderByFullNameAsc(String fullName, Pageable pb);
 
-    Page<Author> findAllByCreatedAtAfter(LocalDate createdAt, Pageable pb);
+    Page<Author> findAllByCreatedAtAfterOrderByCreatedAt(LocalDate createdAt, Pageable pb);
 }

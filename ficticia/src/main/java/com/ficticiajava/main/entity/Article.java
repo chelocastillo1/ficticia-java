@@ -132,7 +132,9 @@ public final class Article extends GenericEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Article article)) return false;
+        if (!(o instanceof Article)) return false;
+
+        Article article = (Article) o;
 
         if (!title.equals(article.title)) return false;
         if (!description.equals(article.description)) return false;
