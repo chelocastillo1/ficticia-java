@@ -162,6 +162,7 @@ class ArticleServiceTest {
         final Long nSourceId = 13L;
 
         final Source SourceTemp = new Source(
+                nSourceId,
                 "Fake News",
                 "Canal de noticias Argentinas",
                 LocalDate.of(2003, 1 , 1)
