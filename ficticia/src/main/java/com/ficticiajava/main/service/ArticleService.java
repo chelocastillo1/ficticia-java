@@ -102,7 +102,7 @@ public class ArticleService {
     }
 
     public Article create(Article n) {
-        if(!repository.findOne(Example.of(n)).isEmpty())
+        if(repository.findOne(Example.of(n)).isPresent())
             throw new ConstraintViolationException(Constants.EXCEPTION_REGISTER_ALREADY_EXISTS);
 
         return repository.save(n);

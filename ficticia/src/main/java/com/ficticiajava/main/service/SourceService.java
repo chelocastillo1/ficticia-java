@@ -100,7 +100,7 @@ public class SourceService {
     }
 
     public Source create(Source n) {
-        if(!repository.findByName(n.getName()).isEmpty())
+        if(repository.findByName(n.getName()).isPresent())
             throw new ConstraintViolationException(Constants.EXCEPTION_REGISTER_ALREADY_EXISTS);
 
         return repository.save(n);

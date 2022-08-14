@@ -118,7 +118,7 @@ public class AuthorService {
     }
 
     public Author create(Author n) {
-        if(!repository.findByFullName(n.getFullName()).isEmpty())
+        if(repository.findByFullName(n.getFullName()).isPresent())
             throw new ConstraintViolationException(Constants.EXCEPTION_REGISTER_ALREADY_EXISTS);
 
         return repository.save(n);
