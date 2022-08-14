@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -212,6 +213,39 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(
                 nReturn,
                 headers,
+                HttpStatus.BAD_REQUEST
+        );
+    }
+
+    @Override
+    public @NotNull ResponseEntity<Object> handleHttpRequestMethodNotSupported(
+            HttpRequestMethodNotSupportedException ex,
+            @NotNull HttpHeaders headers,
+            @NotNull HttpStatus status,
+            @NotNull WebRequest request
+    ) {
+        return new ResponseEntity<>(
+                new ResponseExceptionDto(
+                        HttpStatus.METHOD_NOT_ALLOWED,
+                        ex.getMessage(),
+                        LocalDateTime.now()
+                ),
+                headers,
+                HttpStatus.METHOD_NOT_ALLOWED
+        );
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public @NotNull ResponseEntity<Object> handleIllegalArgument(
+            IllegalArgumentException ex
+    ) {
+        return new ResponseEntity<>(
+                new ResponseExceptionDto(
+                        HttpStatus.BAD_REQUEST,
+                        ex.getMessage(),
+                        LocalDateTime.now()
+                ),
+                null,
                 HttpStatus.BAD_REQUEST
         );
     }

@@ -7,12 +7,14 @@ public final class Constants {
 
     public static final String UNKNOWN = "unknown";
 
-    private static final String ENDPOINT_BASE = "/api/v1/";
-    public static final String ENDPOINT_ARTICLE = ENDPOINT_BASE + "article";
-    public static final String ENDPOINT_AUTHOR = ENDPOINT_BASE + "author";
-    public static final String ENDPOINT_CATEGORY = ENDPOINT_BASE + "category";
-    //public static final String ENDPOINT_HELPER = ENDPOINT_BASE + "help";
-    public static final String ENDPOINT_SOURCE = ENDPOINT_BASE + "source";
+    public static final String ENDPOINT = "";
+    public static final String ENDPOINT_API = ENDPOINT + "/api";
+    public static final String ENDPOINT_API_V1 = ENDPOINT_API + "/v1";
+    public static final String ENDPOINT_ARTICLE = ENDPOINT_API_V1 + "/article";
+    public static final String ENDPOINT_AUTHOR = ENDPOINT_API_V1 + "/author";
+    public static final String ENDPOINT_CATEGORY = ENDPOINT_API_V1 + "/category";
+    //public static final String ENDPOINT_HELPER = ENDPOINT_API_V1 + "/help";
+    public static final String ENDPOINT_SOURCE = ENDPOINT_API_V1 + "/source";
 
     /**
      * Constantes para mensajes de manejo de Excepciones.
