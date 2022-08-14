@@ -18,6 +18,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long>, PagingA
 
     Page<Article> findAllByOrderByPublishedAtDesc(Pageable pb);
 
-    @Query("SELECT a1 FROM Article a1 JOIN a1.author a2 WHERE a1.publishedAt IS NOT NULL AND (a1.title LIKE %:texto% OR a1.description LIKE %:texto% OR a1.content LIKE %:texto% OR a2.fullName LIKE %:texto%) ORDER BY publishedAt DESC")
+    @Query("SELECT a1 FROM Article a1 JOIN a1.author a2 WHERE a1.publishedAt IS NOT NULL AND (a1.title LIKE %:texto% OR a1.description LIKE %:texto% OR a1.content LIKE %:texto% OR a2.fullName LIKE %:texto%) ORDER BY published_at DESC")
     Page<Article> findAllByTexto(@Param("texto") String texto, Pageable pb);
 }
