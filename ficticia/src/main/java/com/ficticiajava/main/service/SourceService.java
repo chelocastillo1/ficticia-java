@@ -37,7 +37,7 @@ public class SourceService {
      * @return Devuelve una cadena formateada en minúsculas con guiones en vez de espacios.
      * */
     public static String toStringCoded(String str) {
-        return String.format("%s", str.toLowerCase().replace(' ', '-'));
+        return str.toLowerCase().replace(' ', '-');
     }
 
     public ResponseResultsDto findAll(int nPage) {
